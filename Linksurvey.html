@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Khảo sát Thí nghiệm lựa chọn rời rạc (DCE)</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+        }
+        .survey-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .survey-table th, .survey-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .survey-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chào mừng bạn đến với khảo sát Thí nghiệm lựa chọn rời rạc (Discrete choice experiment - DCE)</h1>
+    <p>Đây là một khảo sát nhằm đánh giá sở thích của Sinh viên Khoa Dược - Đại học Y Dược Thành phố Hồ Chí Minh đối với sản phẩm chăm sóc da dành cho da mụn.</p>
+    <p>Trước khi bắt đầu, vui lòng đọc kỹ các tiêu chí dưới đây để đảm bảo bạn phù hợp với khảo sát này:.</p>
+    <p>1. Là sinh viên đang theo học tại Khoa Dược - Đại học Y Dược TP. Hồ Chí Minh.</p>
+    <p>2. Thuộc hệ đào tạo chính quy.</p>
+    <p>3. Có kinh nghiệm và hiểu biết về sản phẩm chăm sóc da (đã từng hoặc đang sử dụng các sản phẩm chăm sóc da).</p>
+    <p>4. Tự nguyện tham gia nghiên cứu.</p>
+    <p>Nếu bạn đáp ứng đầy đủ các tiêu chí trên, chúng tôi rất mong bạn dành thời gian hoàn thành khảo sát này. Ý kiến của bạn sẽ giúp ích rất nhiều cho nghiên cứu của chúng tôi. </p>
+    <p>Dưới đây là mô phỏng đơn giản về Bộ lựa chọn DCE</p>
+    <!-- Bảng khảo sát DCE từ R (được chèn vào đây) -->
+    <table class="survey-table">
+        <tr>
+            <th>Xuất xứ</th>
+            <th>Hoạt chất</th>
+            <th>Gía</th>
+            <th>Cảm giác/Biểu hiện trên da</th>
+            <th>Tác động tích cực</th>
+        </tr>
+        <tr>
+            <td>Hàn Quốc</td>
+            <td>AHA</td>
+            <td>&lt;100-300 nghìn</td>
+            <td>Hơi đỏ da thoáng qua</td>
+            <td>Giảm thâm</td>
+        </tr>
+        <tr>
+            <td>Mỹ</td>
+            <td>Retinol</td>
+            <td>500-700 nghìn</td>
+            <td>Châm chích nhẹ, nóng rát thoáng qua</td>
+            <td>Tiêu nhân mụn</td>
+        </tr>
+        <!-- Các dòng khác sẽ tiếp tục ở đây -->
+    </table>
+
+    <p>Khảo sát có thể mất tối đa 15 phút để hoàn thành. Nếu bạn đồng ý tham gia, hãy nhấn vào nút "Tiến hành khảo sát":</p>
+
+    <!-- Button to redirect after 1 minute -->
+    <button id="exit" class="btn-custom">Tiến hành khảo sát!</button>
+
+    <script>
+    $(document).ready(function() {
+        // Disable the button initially
+        $("#exit").prop("disabled", true);
+        
+        // Enable the button after 1 minute
+        setTimeout(function() {
+            $("#exit").prop("disabled", false);
+        }, 60000);
+
+        // JavaScript for random link navigation
+        $("#exit").click(function() {
+            var links = [
+                "https://docs.google.com/forms/d/e/1FAIpQLSfwF00WRKX0ab2pVY1i98YyMgpYDzddMOA00ubRTkES9nYGnA/viewform?usp=header",
+                "https://docs.google.com/forms/d/e/1FAIpQLSfBYYF8E20hELgF77CRRf5J_D1KBfrtvl6Ysx-adtkhgKEINA/viewform?usp=header"
+            ];
+            var randomLink = links[Math.floor(Math.random() * links.length)];
+            window.location.href = randomLink;
+        });
+    });
+    </script>
+
+</body>
+</html>
